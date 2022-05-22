@@ -15,7 +15,7 @@ const Navbar = () => {
     </>
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-green-500 py-8">
       <div className="navbar-start">
         <div className="dropdown  text-2xl   ">
           <label tabindex="0" className="btn btn-ghost lg:hidden">
@@ -25,7 +25,7 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <Link to="/"  className="btn btn-ghost normal-case text-3xl font-bold text-green-500">NISHAN ELECTRIC</Link>
+        <Link to="/"  className="btn btn-ghost normal-case text-3xl font-bold text-dark-500">NISHAN ELECTRIC</Link>
       </div>
 
       <div className="navbar-center hidden text-xl font-bold  lg:flex">

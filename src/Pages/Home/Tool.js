@@ -4,7 +4,7 @@ const Tool = ({ tool }) => {
     return (
         <div className="card lg:max-w-96 bg-base-100 shadow-xl mt-8">
             <figure className="px-10 pt-10 w-25 h-25  ">
-                <img src={tool.img} alt="Shoes" className="rounded-xl  " />
+                <img src={tool.img} alt="img" className="rounded-xl  " />
             </figure>
             <div className="card-body items-center text-center  ">
               

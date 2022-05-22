@@ -8,9 +8,9 @@ const Democard = () => {
 
 
 
-        <div className=' ml-4 '>
+        <div className=' py-12 '>
 
-            <h2 className='text-3xl text-blue-500 text-center font-bold mt-4'> OUR DEMO PRODUCTS </h2>
+            <h2 className='text-4xl text-blue-500 text-center font-bold mt-4'> OUR DEMO PRODUCTS </h2>
 
             <div className='grid lg:grid-cols-2 sm:grid-cols-1   mt-16 gap-8  '>
 

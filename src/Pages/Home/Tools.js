@@ -23,7 +23,7 @@ const Tools = () => {
         },
 
         {
-            _id: 3,
+            _id: 2,
             price: 8000,
             name: "Rechargable Battery",
             description: "Rechargable qualitfull battery available to order",
@@ -32,7 +32,7 @@ const Tools = () => {
             available: 200
         },
         {
-            _id: 4,
+            _id: 3,
             price: 7000,
             name: "Elctric Drill Machine",
             description: "Best Electri Drill machine,available to order",
@@ -42,36 +42,36 @@ const Tools = () => {
             available: 100
         },
 
-        {
-            _id: 5,
-            price: 4000,
-            name: "Dust Cleaner",
-            description: " Fast dust Cleaner Primium, available to order",
-            img: dust,
-            minimumQuanity: 40,
-            
-            available: 200
-        },
-        {
-            _id: 6,
-            price: 2000,
-            name: "Fiber Cable",
-            description: " Load fastest data, transmit speedy data.available to order",
-            img: fiber,
-            minimumQuanity: 30,  
-            available: 180
-        },
+        // {
+        //     _id: 4,
+        //     price: 4000,
+        //     name: "Dust Cleaner",
+        //     description: " Fast dust Cleaner Primium, available to order",
+        //     img: dust,
+        //     minimumQuanity: 40,
+
+        //     available: 200
+        // },
+        // {
+        //     _id: 5,
+        //     price: 2000,
+        //     name: "Fiber Cable",
+        //     description: " Load fastest data, transmit speedy data.available to order",
+        //     img: fiber,
+        //     minimumQuanity: 30,
+        //     available: 180
+        // },
 
 
-        {
-            _id: 2,
-            price: 4000,
-            name: " Fan Coil",
-            description: "Long Lasting coil, hard to damage,available to order",
-            img: coil,
-           minimumQuanity: 50, 
-           available: 150
-        },
+        // {
+        //     _id: 6,
+        //     price: 4000,
+        //     name: " Fan Coil",
+        //     description: "Long Lasting coil, hard to damage,available to order",
+        //     img: coil,
+        //     minimumQuanity: 50,
+        //     available: 150
+        // },
 
 
 
@@ -81,25 +81,25 @@ const Tools = () => {
 
 
 
-return (
-    <div className='my-20'>
-        <div className='text-center'>
-            <h2 className='text-blue-500 text-4xl font-bold '> OUR LATEST TOOLS</h2>
+    return (
+        <div className='my-20'>
+            <div className='text-center'>
+                <h2 className='text-blue-500 text-4xl font-bold '> OUR LATEST TOOLS</h2>
+            </div>
+
+            <div className='grid sm:grid-cols-1 lg:grid-cols-3 mg:grid-cols-2 gap-10 mt-8 '>
+
+                {
+                    tools.map(tool => <Tool
+
+                        key={tool._id}
+                        tool={tool}
+
+                    ></Tool>)
+                }
+            </div>
         </div>
-
-        <div className='grid sm:grid-cols-1 lg:grid-cols-3 mg:grid-cols-2 gap-10 mt-8 '>
-
-            {
-                tools.map(tool => <Tool
-
-                    key={tool._id}
-                    tool={tool}
-
-                ></Tool>)
-            }
-        </div>
-    </div>
-);
+    );
 };
 
 export default Tools;

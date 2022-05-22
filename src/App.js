@@ -7,6 +7,7 @@ import Blogs from './Pages/Blogs';
 import Homepage from './Pages/Home/Homepage';
 
 import Login from './Pages/Login/Login';
+import NotFound from './Pages/NotFoundPage/NotFound';
 import Purchase from './Pages/PurchasePage/Purchase';
 import Navbar from './Pages/SharedPages/Navbar';
 
@@ -25,6 +26,7 @@ function App() {
    <Route path="blogs" element={<Blogs></Blogs>}></Route>
    <Route path="purchase" element={<Purchase></Purchase>}></Route>
    <Route path="login" element={<Login></Login>}></Route>
+   <Route path="*" element={<NotFound></NotFound>}></Route>
   
  </Routes>
 

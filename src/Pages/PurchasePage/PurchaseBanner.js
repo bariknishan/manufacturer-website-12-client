@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+
 import purchase from '../../images/tool/purchase2.jpg'
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
-import { format } from 'date-fns';
 
 
-const PurchaseBanner = () => {
 
-    const [date ,setDate]= useState( new Date())
+const PurchaseBanner = ({date , setDate}) => {
+
+    
     return (
 
         <div className='py-12'>
@@ -22,7 +22,7 @@ const PurchaseBanner = () => {
              mode='single'
                  selected={date}
                  onSelect={setDate}
-                 
+
                  styles={{
                     caption: { color: 'red' }
                   }}
@@ -31,8 +31,6 @@ const PurchaseBanner = () => {
              </div>
            </div>
          </div>
-       
-         <p className='font-bold text-blue-500 text-xl'>You selected {format(date, 'PP')}</p> 
 
 
         </div>

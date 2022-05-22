@@ -2,7 +2,7 @@ import React from 'react';
 import pic from '../../images/icon/people2.png'
 const BusinessSummery = () => {
     return (
-        <section className='w-100 py-12'>
+        <section className='w-100'>
 
             <div className='mt-4 bg-blue-200  mb-4 p-8 w-100' >
                 <h2 className='text-center text-4xl font-bold text-blue-500 mx-4'>MULLIONS OF BUSENESS TRUST US </h2>
@@ -33,7 +33,7 @@ const BusinessSummery = () => {
     
     <div className="font-bold">2022 Running</div>
 
-    <div class="w-16 rounded-full  stat-figure">
+    <div className="w-16 rounded-full  stat-figure">
           <img src={pic}  alt=""/>
         </div>
   </div>
@@ -51,7 +51,7 @@ const BusinessSummery = () => {
 </div>
 
 <div>
-<button class="btn btn-warning btn-xs sm:btn-sm md:btn-md lg:btn-lg">See Details</button>
+<button className="btn btn-warning btn-xs sm:btn-sm md:btn-md lg:btn-lg">See Details</button>
   </div>
 
 

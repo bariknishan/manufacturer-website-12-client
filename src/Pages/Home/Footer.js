@@ -35,7 +35,7 @@ const Footer = () => {
   </div>
 </footer> 
 
-
+<p className='text-center font-bold text-xl'>COPYRIGHT &copy; RSESRVED 2022 </p>
           
         </div>
     );

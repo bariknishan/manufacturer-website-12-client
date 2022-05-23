@@ -10,6 +10,7 @@ import Login from './Pages/Login/Login';
 import NotFound from './Pages/NotFoundPage/NotFound';
 import Purchase from './Pages/PurchasePage/Purchase';
 import Navbar from './Pages/SharedPages/Navbar';
+import SignIn from './Pages/SignIn';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
    <Route path="blogs" element={<Blogs></Blogs>}></Route>
    <Route path="purchase" element={<Purchase></Purchase>}></Route>
    <Route path="login" element={<Login></Login>}></Route>
+   {/* <Route path="login" element={<SignIn></SignIn>}></Route> */}
    <Route path="*" element={<NotFound></NotFound>}></Route>
   
  </Routes>

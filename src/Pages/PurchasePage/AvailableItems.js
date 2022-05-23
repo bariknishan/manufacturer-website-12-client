@@ -8,7 +8,7 @@ const AvailableItems = ({date}) => {
     const [itemPackage, setItemPackage]= useState(null)
 
     useEffect(()=>{
-     fetch('items.json')
+     fetch('http://localhost:5000/products')
      .then(res=> res.json())
      .then(data=>setItems(data))
     },[])

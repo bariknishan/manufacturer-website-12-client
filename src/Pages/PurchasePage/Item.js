@@ -2,7 +2,7 @@ import React from 'react';
 import './Items.css'
 const Item = ({ item,setItemPackage }) => {
 
-    const { name, img, description, products, available } = item
+    const { name, img, description, products, available ,price } = item
     return (
         <div>
             <div className="card lg:max-w-lg bg-blue-400 shadow-xl mt-4 images ">
@@ -11,6 +11,7 @@ const Item = ({ item,setItemPackage }) => {
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{name}</h2>
+                    <h2 className="card-title">Price:${price}</h2>
                     <p>
                         {
                             products.length > 0

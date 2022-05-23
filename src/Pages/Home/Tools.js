@@ -37,8 +37,7 @@ const Tools = () => {
             name: "Elctric Drill Machine",
             description: "Best Electri Drill machine,available to order.",
             img: dril,
-            minimumQuanity: 10,
-            
+            minimumQuanity: 10,   
             available: 200
         },
 

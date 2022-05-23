@@ -16,9 +16,9 @@ const Tools = () => {
             price: 1000,
             name: "Elctric Socket",
 
-            description: " Primium quality electric socket available to order",
+            description: " Primium quality electric socket available to order.",
             img: soceket,
-            minimunQuanity: 35,
+            minimumQuanity: 10,
             available: 200
         },
 
@@ -26,20 +26,20 @@ const Tools = () => {
             _id: 2,
             price: 8000,
             name: "Rechargable Battery",
-            description: "Rechargable qualitfull battery available to order",
+            description: "Rechargable qualitfull battery available to order.",
             img: battery,
-            minimumQuanity: 40,
+            minimumQuanity: 10,
             available: 200
         },
         {
             _id: 3,
             price: 7000,
             name: "Elctric Drill Machine",
-            description: "Best Electri Drill machine,available to order",
+            description: "Best Electri Drill machine,available to order.",
             img: dril,
             minimumQuanity: 10,
-
-            available: 100
+            
+            available: 200
         },
 
         // {
@@ -48,7 +48,7 @@ const Tools = () => {
         //     name: "Dust Cleaner",
         //     description: " Fast dust Cleaner Primium, available to order",
         //     img: dust,
-        //     minimumQuanity: 40,
+        //     minimumQuanity: 10,
 
         //     available: 200
         // },
@@ -58,7 +58,7 @@ const Tools = () => {
         //     name: "Fiber Cable",
         //     description: " Load fastest data, transmit speedy data.available to order",
         //     img: fiber,
-        //     minimumQuanity: 30,
+        //     minimumQuanity: 10,
         //     available: 180
         // },
 
@@ -69,7 +69,7 @@ const Tools = () => {
         //     name: " Fan Coil",
         //     description: "Long Lasting coil, hard to damage,available to order",
         //     img: coil,
-        //     minimumQuanity: 50,
+        //     minimumQuanity: 10,
         //     available: 150
         // },
 

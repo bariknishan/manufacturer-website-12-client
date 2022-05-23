@@ -1,4 +1,5 @@
 import React from 'react';
+import './Democard.css'
 import demo1 from '../../images/demo/demo.png'
 import demo2 from '../../images/demo/demo2.png'
 import demo3 from '../../images/demo/demo3.png'
@@ -14,7 +15,7 @@ const Democard = () => {
 
             <div className='grid lg:grid-cols-2 sm:grid-cols-1   mt-16 gap-8  '>
 
-                <div className="card w-96 bg-base-100 shadow-xl ">
+                <div className="card w-96 bg-base-100 shadow-xl images ">
                     <figure className="px-10 pt-10">
                         <img src={demo1} alt="Shoes" className="rounded-xl" />
                     </figure>
@@ -25,7 +26,7 @@ const Democard = () => {
                     </div>
                 </div>
 
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-xl  images">
                     <figure className="px-10 pt-10">
                         <img src={demo2} alt="Shoes" className="rounded-xl" />
                     </figure>
@@ -35,7 +36,7 @@ const Democard = () => {
                        
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-xl  images">
                     <figure className="px-10 pt-10">
                         <img src={demo3} alt="Shoes" className="rounded-xl" />
                     </figure>
@@ -45,7 +46,7 @@ const Democard = () => {
                        
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-xl images ">
                     <figure className="px-10 pt-10">
                         <img src={demo4} alt="Shoes" className="rounded-xl" />
                     </figure>

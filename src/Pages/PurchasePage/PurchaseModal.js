@@ -3,7 +3,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
-const PurchaseModal = ({ itemPackage, date, setItemPackage }) => {
+const PurchaseModal = ({ itemPackage, date, setItemPackage ,refetch }) => {
     const { _id, name, products } = itemPackage;
     const [user, loading, error] = useAuthState(auth); // require auth
     const formattedDate = format(date, 'PP');
@@ -44,6 +44,7 @@ const PurchaseModal = ({ itemPackage, date, setItemPackage }) => {
                 else{
                     toast.error(`  Already purchase is booked on, ${data.booking?.date} for this item ${data.booking?.product}`)
                 }
+                refetch()
                 setItemPackage(null)
             })
 

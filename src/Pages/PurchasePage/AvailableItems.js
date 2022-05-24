@@ -1,19 +1,31 @@
 import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../SharedPages/Loading';
 import Item from './Item';
 import PurchaseModal from './PurchaseModal';
 
 const AvailableItems = ({date}) => {
-    const [items, setItems]= useState([]);
+    // const [items, setItems]= useState([]);
     const [itemPackage, setItemPackage]= useState(null)
 
 
     const formattedDate= format(date, 'PP')
-    useEffect(()=>{
-     fetch(`http://localhost:5000/available?date=${formattedDate}`)
-     .then(res=> res.json())
-     .then(data=>setItems(data))
-    },[formattedDate])
+ const {data:items , isLoading,refetch}= useQuery(['available', formattedDate],()=> 
+
+   fetch(`http://localhost:5000/available?date=${formattedDate}`)
+   .then(res=> res.json())
+   
+   )
+
+if(isLoading){
+  return <Loading></Loading>
+}
+    // useEffect(()=>{
+    //  fetch(`http://localhost:5000/available?date=${formattedDate}`)
+    //  .then(res=> res.json())
+    //  .then(data=>setItems(data))
+    // },[formattedDate])
     
     return (
         <div>
@@ -21,7 +33,7 @@ const AvailableItems = ({date}) => {
 
           <div className=' grid lg:grid-cols-3 sm:grid-cols-1 gap-5 mt-5 py-12 m-4'>
             {
-              items.map(item=><Item
+              items?.map(item=><Item
               
            key={item._id}
               item={item}
@@ -34,6 +46,7 @@ const AvailableItems = ({date}) => {
         
            date={date} itemPackage={itemPackage}
            setItemPackage={setItemPackage}
+           refetch={refetch}
            ></PurchaseModal>}
         </div>
     );

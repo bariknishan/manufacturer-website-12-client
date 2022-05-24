@@ -17,7 +17,7 @@ const PurchaseModal = ({ itemPackage, date, setItemPackage }) => {
 
         const booking = {
             itemPackageId: _id,
-            itemPacageName: name,
+            itemPackage: name,
             date: formattedDate,
             product,
             buyer: user.email,
@@ -36,7 +36,14 @@ const PurchaseModal = ({ itemPackage, date, setItemPackage }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
+
+                if(data.success){
+                    toast(`purchase is booked, ${formattedDate} at ${product}`)
+                }
+                else{
+                    toast.error(`  Already purchase is booked on, ${data.booking?.date} for this item ${data.booking?.product}`)
+                }
                 setItemPackage(null)
             })
 

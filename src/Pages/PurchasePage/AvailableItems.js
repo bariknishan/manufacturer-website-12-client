@@ -7,11 +7,13 @@ const AvailableItems = ({date}) => {
     const [items, setItems]= useState([]);
     const [itemPackage, setItemPackage]= useState(null)
 
+
+    const formattedDate= format(date, 'PP')
     useEffect(()=>{
-     fetch('http://localhost:5000/products')
+     fetch(`http://localhost:5000/available?date=${formattedDate}`)
      .then(res=> res.json())
      .then(data=>setItems(data))
-    },[])
+    },[formattedDate])
     
     return (
         <div>

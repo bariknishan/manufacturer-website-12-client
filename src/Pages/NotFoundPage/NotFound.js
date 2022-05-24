@@ -4,9 +4,9 @@ const NotFound = () => {
     return (
         <div>
             <div>
-                <div class="card card-compact w-96 mx-auto bg-base-100 flex justify-center items-center shadow-xl">
+                <div className="card card-compact w-96 mx-auto bg-base-100 flex justify-center items-center shadow-xl">
                     <figure><img src={picture} alt="" /></figure>
-                    <div class="card-body">
+                    <div className="card-body">
                        <p className='text-xl font-bold'>Plaese Try again..</p>
                     </div>
                 </div>

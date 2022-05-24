@@ -1,19 +1,35 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from './Loading';
 
 
 const Navbar = () => {
 
+  // sign out system
+  const [user, loading, error] = useAuthState(auth);
+
+  const signout = () => {
+    signOut(auth)
+  }
+
+
+  if (loading) {
+    return <Loading></Loading>
+  }
+
   const navItems =
-    <>  
+    <>
       <li>< Link to="/">Home</Link></li>
       <li>< Link to="/blogs">Blogs</Link></li>
       <li>< Link to="/purchase">Purchase</Link></li>
-     
+
       <li>< Link to="/myprofile">MyprofiLe</Link></li>
       <li>< Link to="/about">About</Link></li>
-      <li>< Link to="/login">Login</Link></li>
-    
+      <li>{user ? <button  onClick={signout} className="btn  btn-error  text-xl">SignOut</button> : < Link to="/login">Login</Link>}</li>
+
     </>
 
   return (
@@ -27,7 +43,7 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <Link to="/"  className="btn btn-ghost normal-case text-3xl font-bold text-dark-500">NISHAN ELECTRIC</Link>
+        <Link to="/" className="btn btn-ghost normal-case text-3xl font-bold text-dark-500">NISHAN ELECTRIC</Link>
       </div>
 
       <div className="navbar-center hidden text-xl font-bold  lg:flex">
@@ -35,7 +51,7 @@ const Navbar = () => {
           {navItems}
         </ul>
       </div>
-    
+
     </div>
   );
 };

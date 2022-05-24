@@ -1,6 +1,7 @@
 import React from 'react';
 import './Tools.css'
 const Tool = ({ tool }) => {
+    
     return (
         <div className="card lg:max-w-96 bg-base-100 shadow-xl mt-8  cards  ">
             <figure className="px-10 pt-10 w-25 h-25  ">

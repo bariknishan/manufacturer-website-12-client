@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init'
 import { useForm } from "react-hook-form";
 import Loading from '../SharedPages/Loading';
+import useToken from '../../Hooks/UseToken';
 
 
 
@@ -26,6 +27,9 @@ const SignUp = () => {
       // update ptofile
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+      // from hook token issue
+      const[token]=useToken(user || gUser)
+
        const navigate= useNavigate()
 
 
@@ -39,8 +43,9 @@ const SignUp = () => {
         signInError=<p className='text-red-500'> <small>{error?.message || gError?.message || updateError?.message   }  </small></p>
     }
 
-    if ( user|| gUser ) {
-        console.log(user ,gUser)
+    // naviagate to purcahse
+    if (token) {
+       navigate('/purchase')
     }
 
 

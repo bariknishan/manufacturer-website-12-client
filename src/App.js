@@ -1,8 +1,7 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import About from './Pages/About/About';
-import Myprofile from './Pages/About/Myprofile';
+// import Myprofile from './Pages/About/Myprofile';
 import Blogs from './Pages/Blogs';
 import Homepage from './Pages/Home/Homepage';
 
@@ -18,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import UserDashboard from './Pages/UserDashboard/UserDashboard';
 import Userorders from './Pages/UserDashboard/Userorders';
 import UserReview from './Pages/UserDashboard/UserReview';
+import MyProfile from './Pages/UserDashboard/MyProfile';
 
 
 
@@ -27,39 +27,31 @@ import UserReview from './Pages/UserDashboard/UserReview';
 function App() {
   return (
     <div className="App">
-   
-          <Navbar></Navbar>
 
- <Routes>
+      <Navbar></Navbar>
 
-   <Route path="/" element={<Homepage></Homepage>}></Route>
-   <Route path="blogs" element={<Blogs></Blogs>}></Route>
-   <Route path="myprofile" element={<Myprofile></Myprofile>}></Route>
-   <Route path="about" element={<About></About>}></Route>
-   <Route path="blogs" element={<Blogs></Blogs>}></Route>
-   <Route path="purchase" element={ <RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
+      <Routes>
 
-   <Route path="dashboard" element={
-      <RequireAuth>
-        <UserDashboard></UserDashboard>
-        
-        </RequireAuth>
-      
-      }>
-        <Route index element={<Userorders></Userorders>}  ></Route>
-        <Route path="review" element={<UserReview></UserReview>}  ></Route>
-      </Route>
-
-  
+        <Route path="/" element={<Homepage></Homepage>}></Route>
+        <Route path="blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="purchase" element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
+        <Route path="dashboard" element={<RequireAuth> <UserDashboard></UserDashboard> </RequireAuth>}>
+          <Route index element={<Userorders></Userorders>}  ></Route>
+          <Route path="review" element={<UserReview></UserReview>}  ></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+        </Route>
 
 
-   <Route path="login" element={<Login></Login>}></Route>
-   <Route path="signup" element={<SignUp></SignUp>}></Route>
-  
-   <Route path="*" element={<NotFound></NotFound>}></Route>
-  
- </Routes>
-<ToastContainer></ToastContainer>
+
+
+        <Route path="login" element={<Login></Login>}></Route>
+        <Route path="signup" element={<SignUp></SignUp>}></Route>
+
+        <Route path="*" element={<NotFound></NotFound>}></Route>
+
+      </Routes>
+      <ToastContainer></ToastContainer>
 
 
 

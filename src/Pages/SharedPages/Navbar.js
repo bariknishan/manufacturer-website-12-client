@@ -12,7 +12,8 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
 
   const signout = () => {
-    signOut(auth)
+    signOut(auth);
+    localStorage.removeItem('accessToken');
   }
 
 
@@ -23,9 +24,6 @@ const Navbar = () => {
       <li>< Link to="/">Home</Link></li>
       <li>< Link to="/blogs">Blogs</Link></li>
       <li>< Link to="/purchase">Purchase</Link></li>
-      <li>< Link to="/myprofile">MyprofiLe</Link></li>
-      <li>< Link to="/about">My Portfolio</Link></li>
-
       {
         user && <li>< Link to="/dashboard">Dashboard</Link></li>
       }

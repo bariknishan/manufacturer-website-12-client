@@ -11,7 +11,7 @@ const PurchaseBanner = ({date , setDate}) => {
     return (
 
         <div className='py-12'>
-             <h2 className='text-4xl font-bold mt-4'>Make Your Deal Today</h2>
+             <h2 className='text-4xl font-bold text-center mt-4'>Make Your Deal Today</h2>
 
              <div className="hero lg:max-w-96 ">
            

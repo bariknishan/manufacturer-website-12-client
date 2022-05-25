@@ -18,6 +18,7 @@ const UserDashboard = () => {
             <li><Link to="/dashboard"  className='text-xl font-bold bg-blue-400 '>My Orders</Link></li>
             <li><Link to="/dashboard/review"  className="text-xl font-bold bg-blue-400 mt-2" >Reviews</Link></li>
             <li><Link to="/dashboard/myprofile"  className="text-xl font-bold bg-blue-400 mt-2" >MyProfile</Link></li>
+            <li><Link to="/dashboard/users"  className="text-xl font-bold bg-blue-400 mt-2" >Users</Link></li>
 
           </ul>
         

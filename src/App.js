@@ -18,6 +18,7 @@ import UserDashboard from './Pages/UserDashboard/UserDashboard';
 import Userorders from './Pages/UserDashboard/Userorders';
 import UserReview from './Pages/UserDashboard/UserReview';
 import MyProfile from './Pages/UserDashboard/MyProfile';
+import Users from './Pages/UserDashboard/Users';
 
 
 
@@ -40,6 +41,7 @@ function App() {
           <Route index element={<Userorders></Userorders>}  ></Route>
           <Route path="review" element={<UserReview></UserReview>}  ></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+          <Route path="users" element={<Users></Users>}></Route>
         </Route>
 
 

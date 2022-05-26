@@ -1,11 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
 import Loading from '../SharedPages/Loading';
 
 const AddProduct = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit ,reset } = useForm();
     const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/products').then(res => res.json()))
 
 
@@ -21,28 +22,48 @@ const AddProduct = () => {
 
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageApi}`
         fetch(url, {
-            method:'POST',
+            method: 'POST',
             body: formData
 
         })
 
-        .then(res=>res.json())
-        .then(result=>{
+            .then(res => res.json())
+            .then(result => {
 
-            if(result.success){
-                const img= result.data.url;
-                const product={
-                    name: data.name,
-                    buyer:data.buyer,
-                    price:data.price,
-                    img:img.url
+                if (result.success) {
+                    const img = result.data.url;
+                    const product = {
+                        name: data.name,
+                        buyer: data.buyer,
+                        price: data.price,
+                        img: img.url
 
+                    }
+
+                    // sending product info to databse
+
+                    fetch('http://localhost:5000/product', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            // console.log(inserted, 'is added')
+                            if(inserted.insertedId){
+                                toast.success('product added successfully');
+                                reset()
+                            }
+                            else{
+                                toast.error('failed to added product try after some time')
+                            }
+                        })
                 }
 
-                // sending product info to databse
-            }
-        
-        })
+            })
     }
 
     if (isLoading) {

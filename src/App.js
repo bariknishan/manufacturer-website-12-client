@@ -20,6 +20,7 @@ import UserReview from './Pages/UserDashboard/UserReview';
 import MyProfile from './Pages/UserDashboard/MyProfile';
 import Users from './Pages/UserDashboard/Users';
 import RequireAdmin from './Pages/Login/RequireAdmin';
+import AddProduct from './Pages/UserDashboard/AddProduct';
 
 
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="review" element={<UserReview></UserReview>}  ></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
+          <Route path="addProduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
         </Route>
 
 

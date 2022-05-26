@@ -2,13 +2,13 @@ import React from 'react';
 import pic from '../../images/icon/people2.png'
 const BusinessSummery = () => {
     return (
-        <section className='w-100'>
+        <section className=''>
 
-            <div className='mt-4 bg-blue-200  mb-4 p-8 w-100' >
+            <div className='mt-4 bg-blue-200  mb-4 p-8 ' >
                 <h2 className='text-center text-4xl font-bold text-blue-500 mx-4'>MULLIONS OF BUSENESS TRUST US </h2>
-                <h3 className='text-center text-3xl text-green-500 font-bold mt-4'>WE BELIEVE IN CUSTOMER</h3>
+                <h3 className='text-center text-2xl text-secondery-500 font-bold mt-4'>WE BELIEVE IN CUSTOMER</h3>
 
-  <div className="stats stats-vertical lg:stats-horizontal m-4 shadow p-8">
+  <div className="stats stats-vertical  lg:stats-horizontal m-4 shadow p-8">
   
   <div className="stat">
     <div className="stat-title font-bold text-black-500">Clients</div>
@@ -45,14 +45,14 @@ const BusinessSummery = () => {
   </div>
 
  
-  
+  <div>
+<button className="btn btn-warning text-center btn-xs sm:btn-sm md:btn-md lg:btn-md">See Details</button>
+  </div>
   
 
 </div>
 
-<div>
-<button className="btn btn-warning btn-xs sm:btn-sm md:btn-md lg:btn-lg">See Details</button>
-  </div>
+
 
 
             </div>

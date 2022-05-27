@@ -21,11 +21,7 @@ const AvailableItems = ({date}) => {
 if(isLoading){
   return <Loading></Loading>
 }
-    // useEffect(()=>{
-    //  fetch(`http://localhost:5000/available?date=${formattedDate}`)
-    //  .then(res=> res.json())
-    //  .then(data=>setItems(data))
-    // },[formattedDate])
+  
     
     return (
         <div>

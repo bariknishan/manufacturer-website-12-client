@@ -27,6 +27,7 @@ const UserDashboard = () => {
 
   <li>  <Link  to="/dashboard/users"  className="text-xl font-bold bg-blue-400 mt-2" >Users</Link></li>
   <li>  <Link  to="/dashboard/addProduct"  className="text-xl font-bold bg-blue-400 mt-2" >Add A Product</Link></li>
+  <li>  <Link  to="/dashboard/manageProduct"  className="text-xl font-bold bg-blue-400 mt-2" >Manage Products</Link></li>
    </> }
           </ul>
         

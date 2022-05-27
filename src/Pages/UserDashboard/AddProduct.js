@@ -102,6 +102,52 @@ const AddProduct = () => {
                 </div>
 
 
+
+                  {/* ////eemil */}
+
+                  <div className="form-control">
+                            <label className="label">
+                                <span className="label-text"> Buyer Email</span>
+                            </label>
+                            <input type="email" placeholder="email" className="input input-bordered"
+
+                                {...register("email",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: 'email is required'
+                                        },
+
+                                        pattern: {
+                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                            message: 'Give valid email '
+                                        }
+                                    })}
+
+                            />
+                        </div>
+
+
+                        <label className="label">
+                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                        </label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {/* ----------------price feild-------------------- */}
 
                 <div className="form-control">

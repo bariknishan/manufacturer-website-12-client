@@ -16,13 +16,11 @@ const Navbar = () => {
     localStorage.removeItem('accessToken');
   }
 
-
-  
-
   const navItems =
     <>
       <li>< Link to="/">Home</Link></li>
       <li>< Link to="/blogs">Blogs</Link></li>
+      <li>< Link to="/portfolio">Portfolio</Link></li>
       <li>< Link to="/purchase">Purchase</Link></li>
       {
         user && <li>< Link to="/dashboard">Dashboard</Link></li>

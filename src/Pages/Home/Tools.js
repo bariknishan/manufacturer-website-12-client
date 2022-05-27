@@ -1,10 +1,7 @@
 import React from 'react';
 import soceket from '../../images/tool/tool1.png'
-import coil from '../../images/tool/tool2.png'
 import battery from '../../images/tool/tool3.png'
 import dril from '../../images/tool/tool4.png'
-import dust from '../../images/tool/tool5.png'
-import fiber from '../../images/tool/tool6.png'
 import Tool from './Tool';
 const Tools = () => {
 
@@ -19,7 +16,7 @@ const Tools = () => {
             description: " Primium quality electric socket available to order.",
             img: soceket,
             minimumQuanity: 10,
-            available: 200
+            available: 135
         },
 
         {
@@ -29,7 +26,7 @@ const Tools = () => {
             description: "Rechargable qualitfull battery available to order.",
             img: battery,
             minimumQuanity: 10,
-            available: 200
+            available: 135
         },
         {
             _id: 3,
@@ -38,40 +35,10 @@ const Tools = () => {
             description: "Best Electri Drill machine,available to order.",
             img: dril,
             minimumQuanity: 10,   
-            available: 200
+            available: 135
         },
 
-        // {
-        //     _id: 4,
-        //     price: 4000,
-        //     name: "Dust Cleaner",
-        //     description: " Fast dust Cleaner Primium, available to order",
-        //     img: dust,
-        //     minimumQuanity: 10,
-
-        //     available: 200
-        // },
-        // {
-        //     _id: 5,
-        //     price: 2000,
-        //     name: "Fiber Cable",
-        //     description: " Load fastest data, transmit speedy data.available to order",
-        //     img: fiber,
-        //     minimumQuanity: 10,
-        //     available: 180
-        // },
-
-
-        // {
-        //     _id: 6,
-        //     price: 4000,
-        //     name: " Fan Coil",
-        //     description: "Long Lasting coil, hard to damage,available to order",
-        //     img: coil,
-        //     minimumQuanity: 10,
-        //     available: 150
-        // },
-
+      
 
 
     ]

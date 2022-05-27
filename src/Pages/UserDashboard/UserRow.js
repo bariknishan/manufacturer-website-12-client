@@ -28,10 +28,9 @@ const UserRow = ({user,refetch}) => {
     }
 
  
-  
     return (
              
-      <tr index>
+      <tr>
         <th>Postition</th>
         <td>{email}</td>
         <td>{ role!=='admin' && <button  onClick={makeAdmin} className="btn btn-info">Make Admin</button>}</td>

@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 const PurchaseModal = ({ itemPackage, date, setItemPackage ,refetch }) => {
-    const { _id, name, products } = itemPackage;
+    const { _id, name, products,price } = itemPackage;
     const [user, loading, error] = useAuthState(auth); // require auth
     const formattedDate = format(date, 'PP');
 
@@ -20,6 +20,7 @@ const PurchaseModal = ({ itemPackage, date, setItemPackage ,refetch }) => {
             itemPackage: name,
             date: formattedDate,
             product,
+            price,
             buyer: user.email,
             buyerName: user.displayName,
             phone: event.target.phone.value,
@@ -27,7 +28,7 @@ const PurchaseModal = ({ itemPackage, date, setItemPackage ,refetch }) => {
 
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://fierce-journey-20981.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

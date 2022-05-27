@@ -7,7 +7,7 @@ import Loading from '../SharedPages/Loading';
 const AddProduct = () => {
 
     const { register, formState: { errors }, handleSubmit ,reset } = useForm();
-    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/products').then(res => res.json()))
+    const { data: products, isLoading } = useQuery('products', () => fetch('https://fierce-journey-20981.herokuapp.com/products').then(res => res.json()))
 
 
     const imageStorageApi = 'e2570f581eee75588f413b5b7994752c'
@@ -42,7 +42,7 @@ const AddProduct = () => {
 
                     // sending product info to databse
 
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://fierce-journey-20981.herokuapp.com/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

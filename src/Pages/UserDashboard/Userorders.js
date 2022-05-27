@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Userorders = () => {
@@ -15,7 +15,7 @@ const Userorders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/booking?buyer=${user.email}`, {
+            fetch(`https://fierce-journey-20981.herokuapp.com/booking?buyer=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -55,6 +55,7 @@ const Userorders = () => {
                             <th>Date</th>
                             <th>Time</th>
                             <th>ItemPackage</th>
+                            <th>pay</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,12 +66,17 @@ const Userorders = () => {
                            
                                 <tr key={index}>
                                     
-                                    <th>{index + 1}</th>
-                                    <th>{order.buyer}</th>
-                                    <td>{order.itemPackage}</td>
-                                    <td>{order.date}</td>
-                                    <td>{order.product}</td>
-                                </tr>
+                             <th>{index + 1}</th>
+                             <th>{order.buyer}</th>
+                          <td>{order.itemPackage}</td>
+                         <td>{order.date}</td>
+                         <td>{order.product}</td>
+
+                          <td>{(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}> <button className='btn btn-xs btn-accent'>pay Now</button></Link>}
+                         {(order.price && order.paid) &&  <span className='text-secondary'>paid</span>}
+                                    
+                    </td>
+                    </tr>
                             )
                         }
 

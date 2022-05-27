@@ -13,7 +13,7 @@ const AvailableItems = ({date}) => {
     const formattedDate= format(date, 'PP')
  const {data:items , isLoading,refetch}= useQuery(['available', formattedDate],()=> 
 
-   fetch(`http://localhost:5000/available?date=${formattedDate}`)
+   fetch(`https://fierce-journey-20981.herokuapp.com/available?date=${formattedDate}`)
    .then(res=> res.json())
    
    )

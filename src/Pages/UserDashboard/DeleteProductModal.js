@@ -6,7 +6,7 @@ const DeleteProductModal = ({deleteProduct ,refetch  ,setDeleteProduct}) => {
 
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/product/${email}`,{
+        fetch(`https://fierce-journey-20981.herokuapp.com/product/${email}`,{
  
             method: 'DELETE',
  

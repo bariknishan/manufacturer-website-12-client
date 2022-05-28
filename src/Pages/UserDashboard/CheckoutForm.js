@@ -1,11 +1,46 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ order }) => {
 
     const stripe = useStripe()
     const elements = useElements();
     const [cardError, setCardError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [processing, setProcessing] = useState(false)
+    const [transatctionId, setTransactionId] = useState('')
+    const [clientSecret, setClientSecret] = useState('');
+
+
+    const { _id, price, buyer, buyerName } = order;
+
+
+    useEffect(() => {
+
+        fetch('https://fierce-journey-20981.herokuapp.com/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({ price })
+
+
+
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.clientSecret) {
+                    setClientSecret(data.clientSecret)
+                }
+
+            })
+
+    }, [price])
+
+
+
 
 
     const handleSubmit = async (event) => {
@@ -27,13 +62,64 @@ const CheckoutForm = () => {
             card
         })
 
-      
-           setCardError(error?.message || '')
-        
-       
+
+        setCardError(error?.message || '')
+        setSuccess('');
+        setProcessing(true);
+
+        //// confirm card payment 
+
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: buyerName,
+                        email: buyer
+                    },
+                },
+            },
+        );
 
 
+        if (intentError) {
+            setCardError(intentError?.message);
+            setProcessing(false)
 
+
+        }
+
+        else {
+            setCardError('');
+            setTransactionId(paymentIntent.id)
+            console.log(paymentIntent);
+            setSuccess(' Your payment is Done');
+
+            //// updated to databse and store payment 
+
+            const payment = {
+                order: _id,
+                transatctionId:paymentIntent.id 
+            }
+
+            fetch(`https://fierce-journey-20981.herokuapp.com/booking/${_id}`, {
+
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+
+
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setProcessing(false)
+                    console.log(data)
+                })
+        }
 
 
     }
@@ -41,34 +127,41 @@ const CheckoutForm = () => {
 
     return (
 
-     <>
-        <form onSubmit={handleSubmit}>
-            <CardElement
-                options={{
-                    style: {
-                        base: {
-                            fontSize: '16px',
-                            color: '#424770',
-                            '::placeholder': {
-                                color: '#aab7c4',
+        <>
+            <form onSubmit={handleSubmit}>
+                <CardElement
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: '16px',
+                                color: '#424770',
+                                '::placeholder': {
+                                    color: '#aab7c4',
+                                },
+                            },
+                            invalid: {
+                                color: '#9e2146',
                             },
                         },
-                        invalid: {
-                            color: '#9e2146',
-                        },
-                    },
-                }}
-            />
-            <button className=' btn btn-accent btn-sm mt-2 ' type="submit" disabled={!stripe}>
-                Pay
-            </button>
-        </form>
-     
-     {
-        cardError && <p className='text-red-400'>{cardError}</p>
-     }
-     
-     </>
+                    }}
+                />
+                <button className=' btn btn-accent btn-sm mt-2 ' type="submit" disabled={!stripe || !clientSecret}>
+                    Pay
+                </button>
+            </form>
+
+            {
+                cardError && <p className='text-red-400'>{cardError}</p>
+            }
+            {
+                success && <div className='text-dark-400'>
+
+                    <p>{success}</p>
+                    <p>Your Transaction Id: <span className='text-red-400 font-bold'>{transatctionId}</span> </p>
+                </div>
+            }
+
+        </>
     );
 };
 

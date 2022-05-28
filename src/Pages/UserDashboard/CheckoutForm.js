@@ -26,8 +26,6 @@ const CheckoutForm = ({ order }) => {
             body: JSON.stringify({ price })
 
 
-
-
         })
             .then(res => res.json())
             .then(data => {

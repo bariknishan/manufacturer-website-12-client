@@ -20,9 +20,7 @@ const MyPortfolio = () => {
                      <h2>Some of My projectsLink:</h2>
                     <p className='text-blue-400'> https://super-shortbread-78476d.netlify.app/</p>
                     <p className='text-blue-400'> https://computer-warehouse-a5ede.web.app/</p>
-                    <p className='text-blue-400'> https://electric-manufacturer-5c625.web.app/</p>
-                   
-                  
+                    <p className='text-blue-400'> https://electric-manufacturer-5c625.web.app/</p>   
                 </div>
             </div>
         </div>
